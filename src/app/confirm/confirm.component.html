@@ -1,0 +1,51 @@
+<main>
+  <div class="container main-container">
+    <h1>Confirm your order</h1>
+
+    <div class="row justify-content-around">
+      <!-- Cart items -->
+      <div class="col-lg-5">
+        <h2>Your cart items</h2>
+        <div class="cart-items-container">
+          <ul>
+            <li class="row" *ngFor="let cartItem of cartItems">
+              <span class="col-9">{{cartItem.name}}</span>
+              <span class="price col-3">{{cartItem.price}}kr</span>
+            </li>
+          </ul>
+          <hr>
+          <p>Total {{totalCost}}kr</p>
+        </div>
+      </div>
+      <!-- Billing-info -->
+      <div class="billing-info-container col-lg-6">
+        <h2>Billing Information</h2>
+        <ul *ngIf="userData">
+            <li class="row">
+                <span class="col-3">Name</span>
+                <span class="price col-9">{{userData.firstName}}</span>
+            </li>
+            <li class="row">
+                <span class="col-3">Email</span>
+                <span class="price col-9">{{userData.email}}</span>
+            </li>
+            <li class="row">
+                <span class="col-3">Payment method</span>
+                <span class="price col-9">{{userData.paymentMethod}}</span>
+            </li>
+            <li class="row">
+                <span class="col-3">Phone number</span>
+                <span class="price col-9">{{userData.phoneNumber}}</span>
+            </li>
+            <li class="row">
+                <span class="col-3">Other phone number</span>
+                <span class="price col-9">{{userData.phoneNumbers}}</span>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <button class="button-basic" (click)="orderSubmit()">Order</button>
+    <button class="button-basic" (click)="goBack()">Go back</button>
+
+  </div>
+</main>

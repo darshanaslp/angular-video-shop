@@ -1,0 +1,60 @@
+/*borders for checking*/
+@mixin bordersToCheck ($colour1, $colour2, $colour3) {
+    div, section{
+        border: 1px dashed $colour1;
+    }
+
+    nav, img, i, ul, li{
+        border: 1px dashed $colour2;
+    }
+
+    main, aside, button{
+        border: 1px dashed $colour3;
+    }
+}
+
+@mixin boxShadow(){
+    -webkit-box-shadow: 3px 4px 8px 0px rgba(133,133,133,1);
+    -moz-box-shadow: 3px 4px 8px 0px rgba(133,133,133,1);
+    box-shadow: 3px 4px 8px 0px rgba(133,133,133,1);
+}
+
+//Button style
+@mixin buttonStyle($bgColor,$tColor,$bColor) {
+    background-color: $bgColor;
+    color: $tColor;
+    line-height: 22px;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 25px;
+    text-decoration: none;
+    border: 1px solid $bColor;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+}
+
+//Sub button style
+@mixin subButtonStyle($bgColor,$tColor,$bColor) {
+    background-color: $bgColor;
+    font-size: 1rem;
+    color: $tColor;
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
+    border: 1px solid $bColor;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+}
+
+//Border style
+@mixin borderStyle($bColor) {
+    border: 1px solid $bColor;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+}

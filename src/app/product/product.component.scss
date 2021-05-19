@@ -1,0 +1,48 @@
+@import './../../sass/_import.scss';
+
+.main-container {
+
+    // @include bordersToCheck(pink, yellow, blue);
+
+    .img-container {
+        padding: 5%;
+        text-align: center;
+
+        img {
+            width: 100%;
+            max-width: 400px;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: top;
+            object-position: top;
+            @include boxShadow;
+        }
+
+    }
+
+    .details-container {
+        padding: 5%;
+        border-left: 1px solid transparent;
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+    }
+}
+
+//Tablet size
+@media screen and (min-width: 991px) {
+    .main-container {
+
+        .details-container {
+            border-left: 1px solid $lightColorB;
+        }
+    }
+
+}
+
+//Desktop size
+@media screen and (min-width: 1024px) {
+
+}

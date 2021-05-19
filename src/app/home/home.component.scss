@@ -1,0 +1,80 @@
+@import './../../sass/_import.scss';
+
+.main-container {
+
+    // @include bordersToCheck(pink, yellow, blue);
+
+    .filter {
+
+        @include borderStyle($mainColorB);
+        @include boxShadow;
+        margin: 15px;
+        padding: 10px;
+        background-color: white;
+
+        .search-box {
+            padding: 5px;
+        }
+
+        .category-box {
+
+            .category-div {
+                height: 50px;
+                width: 160px;
+                padding-left: 5px;
+                border-left: 6px solid pink;
+                background-color: $mainColorB;
+                color: $fontColorNav;
+                line-height: 45px;
+                @include boxShadow;
+                margin: 10px 5px;
+                cursor: pointer;
+            }
+
+            .action {
+                border-left: 6px solid $action;
+            }
+
+            .thriller {
+                border-left: 6px solid $thriller;
+            }
+
+            .comedy {
+                border-left: 6px solid $comedy;
+            }
+
+            .sci-fi {
+                border-left: 6px solid $sci-fi;
+            }
+
+        }
+    }
+    .product-list {
+
+        .card-wrapper {
+            padding:0 15px;
+            display: flex;
+            flex-wrap: wrap;
+
+            .card{
+                margin-bottom: 1.875rem;
+                border: none;
+                border-radius: 0;
+                @include boxShadow;
+
+                img{
+                    width: 100%;
+                    height: 350px;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    -o-object-position: top;
+                    object-position: top;
+                }
+
+                .card-body{
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}

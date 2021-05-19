@@ -1,0 +1,22 @@
+@import './../../sass/_import.scss';
+
+.wrapper {
+    background-color: $backgroundNav;
+
+    nav {
+        color: $fontColorNav;
+        padding: 20px 0px;
+
+        fa-icon {
+            color: $fontColorNav;
+            font-size: 2rem;
+        }
+
+        a.active {
+            color: rgb(221, 141, 167);
+            font-weight: bold;
+        }
+
+    }
+
+}

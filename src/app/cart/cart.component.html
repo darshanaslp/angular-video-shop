@@ -1,0 +1,47 @@
+<main>
+  <div class="container main-container">
+    <h1>Your cart</h1>
+
+    <div class="contents">
+      <!-- Show the message if total price is 0 -->
+      <p *ngIf="totalPrice === 0">
+        Your cart is empty.
+      </p>
+
+      <div class="cart-list-container">
+        <ul list-group>
+          <li class="cart-list row" *ngFor="let cartItem of cartItems">
+            <span class="col col-m-2 align-self-center">
+              <img src= "{{cartItem.imageUrl}}">
+            </span>
+            <span class="col col-m-4 align-self-center">
+              <a routerLink="/product/{{cartItem.id}}"><h3>{{cartItem.name}}</h3></a>
+              {{cartItem.year}}
+            </span>
+            <span class="col col-m-2 align-self-center">
+              {{cartItem.price}}kr
+            </span>
+            <span class="col col-m-2 align-self-center">
+              <button class="button-basic" (click)="removeFromCart(cartItem.id)">
+                remove
+              </button>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="totalPrice > 0">
+        <p class="total-price">Total price <span class="price">{{totalPrice}}kr</span></p>
+      </div>
+
+      <div class="btn-container row">
+        <!-- Show Checkout btn only if cart item(s) is more than one -->
+        <div *ngIf="totalPrice > 0">
+          <button routerLink="/checkout" class="button-basic">Checkout</button>
+        </div>
+
+        <button routerLink="" class="button-basic">Go back to the list</button>
+      </div>
+    </div>
+  </div>
+</main>

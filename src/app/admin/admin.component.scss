@@ -1,0 +1,23 @@
+@import './../../sass/_import.scss';
+
+.main-container {
+
+    // @include bordersToCheck(pink, yellow, blue);
+
+    th, td {
+        vertical-align: middle;
+        text-align: center;
+        padding: 5px;
+        background-color: white;
+    }
+
+    input {
+        width:75%;
+        text-align: center;
+    }
+
+    mat-table, table {
+        background-color: white;
+    }
+
+}

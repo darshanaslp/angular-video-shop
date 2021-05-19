@@ -1,0 +1,91 @@
+<main>
+  <div class="container main-container">
+    <h1>Update order</h1>
+    <div *ngIf="orderDetails">
+
+      <form [formGroup]="updateOrderForm">
+        <h2>Order details</h2>
+        <table class="table table-bordered table-order">
+          <tr>
+            <th>ID</th>
+            <td>{{orderDetails.id}}</td>
+          </tr>
+          <tr>
+            <th>Ordered On</th>
+            <td>{{orderDetails.created | date: 'M/d/yy, h:mm a'}}</td>
+          </tr>
+          <tr>
+            <th>Ordered By</th>
+            <td>{{orderDetails.createdBy}}</td>
+          </tr>
+          <tr>
+            <th>PaymentMethod</th>
+            <td>
+              <select formControlName="payment">
+                <option [ngValue]="paymentChoice" *ngFor="let paymentChoice of paymentChoices">
+                  {{paymentChoice}}
+                </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td>
+              <select formControlName="status">
+                <option [ngValue]="statusChoice.id" *ngFor="let statusChoice of statusChoices">
+                  {{statusChoice.status}}
+                </option>
+              </select>
+            </td>
+          </tr>
+        </table>
+
+        <h2>Item details</h2>
+        <table class="table table-bordered table-items">
+          <tr>
+            <th width="15%">Item ID</th>
+            <th width="15%">Product Id</th>
+            <th width="30%">Product Name</th>
+            <th width="15%">Amount</th>
+          </tr>
+          <ng-container formArrayName="items">
+            <ng-container *ngFor="let item of updateOrderForm.get('items').controls; let i=index">
+              <ng-container [formGroupName]="i">
+                <tr>
+                  <td class="text-center">
+                    <input type="number" formControlName="id" readonly class="table-readonly">
+                  </td>
+                  <td class="text-center">
+                    <select formControlName="productId">
+                      <option [ngValue]="product.id" *ngFor="let product of products">
+                        {{product.id}}
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" formControlName="productName" readonly class="table-readonly">
+                  </td>
+                  <td class="text-center">
+                    <select formControlName="amount">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                    </select>
+                  </td>
+                </tr>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </table>
+        <button class="button-basic" type="submit" (click)="updateOrder(orderDetails.id)">Update order</button>
+        <button class="button-basic" type="button" (click)="deleteOrder(orderDetails.id)">Delete order</button>
+      </form>
+    </div>
+
+    <!-- Show only orderDetail is empty -->
+    <div *ngIf="!orderDetails">
+      <p>Order has been deleted.</p>
+      <button routerLink="/admin" class="button-basic">Go back to admin</button>
+    </div>
+
+  </div>
+<main>

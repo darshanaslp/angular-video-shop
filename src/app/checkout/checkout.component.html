@@ -1,0 +1,61 @@
+<main>
+  <div class="container main-container">
+    <h1>Check out</h1>
+
+    <div class="row">
+      <!-- Cart items -->
+      <div class="col-lg-6">
+        <h2>Your cart items</h2>
+        <div class="cart-items-container">
+          <ul>
+            <li class="row" *ngFor="let cartItem of cartItems">
+              <span class="col-9"><a routerLink="/details/{{cartItem.id}}">{{cartItem.name}}</a></span>
+              <span class="price col-3">{{cartItem.price}}kr</span>
+            </li>
+          </ul>
+          <hr>
+          <p>Total {{totalCost}}kr</p>
+        </div>
+      </div>
+
+      <!-- Billing-info -->
+      <div class="billing-info-container col-lg-6">
+        <h2>Billing Information</h2>
+        <form [formGroup]="userForm" (ngSubmit)="billingOnSubmit()">
+          <div>
+            <label>First Name<span>(required)</span></label><br>
+            <input type="text" formControlName="firstName">
+          </div>
+          <div>
+            <label>Email<span>(required)</span></label><br>
+            <input type="email" formControlName="email">
+          </div>
+          <div>
+            <label>Payment method<span>(required)</span></label><br>
+            <select formControlName="paymentMethod">
+              <option [ngValue]="paymentChoice" *ngFor="let paymentChoice of paymentChoices">{{paymentChoice}}</option>
+            </select>
+          </div>
+          <div>
+            <label>Phone number<span>(required)</span></label><br>
+            <input type="number" formControlName="phoneNumber">
+          </div>
+
+          <div formArrayName="phoneNumbers">
+            <div *ngFor="let phone of phoneNumbers.controls; let i=index">
+              <div>
+                <label>Other phone number<span>(option)</span></label><br>
+                <input type="number" [formControlName]="i">
+                <button class="sub-button" (click)="removePhoneNumber(i)">Remove</button>
+              </div>
+              <button class="sub-button" type="button" (click)="addPhoneNumber()">Add more phone numbers</button>
+            </div>
+          </div>
+          <button class="button-basic" type="submit" [ngClass]="{'isDisable-style': !userForm.valid}"
+            [disabled]="!userForm.valid">Confirm order</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</main>

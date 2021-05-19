@@ -1,0 +1,45 @@
+@import './../../sass/_import.scss';
+
+.main-container {
+
+    // @include bordersToCheck(pink, yellow, blue);
+
+    .contents {
+
+        .cart-list-container {
+
+            .cart-list {
+                background-color: white;
+                border: 1px solid rgba(0, 0, 0, 0.125);
+            }
+
+            span {
+                img {
+                    width: 100px;
+                    height: 150px;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    -o-object-position: top;
+                    object-position: top;
+                }
+            }
+
+            li {
+                padding: 10px;
+                margin: 10px;
+            }
+        }
+
+        .total-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: right;
+
+            .price {
+                font-size: 1.6rem;
+            }
+        }
+
+    }
+
+}

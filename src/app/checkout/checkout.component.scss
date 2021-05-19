@@ -1,0 +1,33 @@
+@import './../../sass/_import.scss';
+
+.main-container {
+    // @include bordersToCheck(pink, yellow, blue);
+
+    .cart-items-container {
+        max-width: 500px;
+        @include borderStyle($lightColorB);
+        background-color: white;
+        padding: 10px;
+        margin: auto;
+
+        .price {
+            text-align: right;
+        }
+
+        hr {
+            margin-left: 0;
+        }
+    }
+
+    .billing-info-container {
+
+        form {
+            max-width: 500px;
+            @include borderStyle($lightColorB);
+            background-color: white;
+            padding: 10px;
+            margin: auto;
+        }
+    }
+
+}
